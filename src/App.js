@@ -25,24 +25,33 @@ const App = () => {
 
   return (
     <div className='container'>
-      <input
-        className='inputi'
-        type='text'
-        name='item'
-        onChange={(event) => setItem(event.target.value)}
-      ></input>
-      <button className='buton' onClick={handleClick}>
-        Add
-      </button>
+      <div classname='cont'>
+        <input
+          className='inputi'
+          type='text'
+          name='item'
+          onChange={(event) => setItem(event.target.value)}
+        ></input>
+        <button className='buton' onClick={handleClick}>
+          Add
+        </button>
+      </div>
       <div className='itemsat'>
         {defaultItems.map((e) => {
           return (
             <>
-              <div> {e.todo} </div>
-              <button className='butoniVogel' id={e.id} onClick={handleDelete}>
-                {/* {" "} */}
-                Delete
-              </button>
+              <div className='njeitem'>
+                <div> {e.todo} </div>
+                <button
+                  className='butoniVogel'
+                  id={e.id}
+                  onClick={handleDelete}
+                >
+                  {/* {" "} */}
+                  Delete
+                </button>
+                <button className='butoniVogel'>Edit</button>
+              </div>
             </>
           )
         })}
