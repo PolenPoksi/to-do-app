@@ -50,7 +50,7 @@ const App = () => {
                   {/* {" "} */}
                   Delete
                 </button>
-                <button className='butoniVogel'>Edit</button>
+                <button className='butoniVogel' >Edit</button>
               </div>
             </>
           )
