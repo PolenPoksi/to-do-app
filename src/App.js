@@ -4,6 +4,7 @@ import React, { useState } from "react"
 const App = () => {
   const [counter, setCounter] = useState(1)
   const [item, setItem] = useState("")
+  const [defaultItems, setItems] = useState([])
 
   const handleClick = (e) => {
     e.preventDefault()
@@ -11,29 +12,51 @@ const App = () => {
       todo: item,
       id: counter,
     }
+    setItems([...defaultItems, newTodo])
     setCounter(counter + 1)
-    // console.log("The link was clicked:" + item)
-    console.log(newTodo)
+    console.log(defaultItems)
   }
 
-  
+  const handleDelete = (e) => {
+    const id = e.target.getAttribute("id")
+    setItems(defaultItems.filter((newToDo) => newToDo.id != id))
+    console.log(defaultItems)
+  }
 
   return (
-    <section>
-      <div>
+    <div className='container'>
+      <div classname='cont'>
         <input
+          className='inputi'
           type='text'
           name='item'
           onChange={(event) => setItem(event.target.value)}
         ></input>
-        <button
-          // type='btn'
-          onClick={handleClick}
-        >
+        <button className='buton' onClick={handleClick}>
           Add
         </button>
       </div>
-    </section>
+      <div className='itemsat'>
+        {defaultItems.map((e) => {
+          return (
+            <>
+              <div className='njeitem'>
+                <div> {e.todo} </div>
+                <button
+                  className='butoniVogel'
+                  id={e.id}
+                  onClick={handleDelete}
+                >
+                  {/* {" "} */}
+                  Delete
+                </button>
+                <button className='butoniVogel'>Edit</button>
+              </div>
+            </>
+          )
+        })}
+      </div>
+    </div>
   )
 }
 
