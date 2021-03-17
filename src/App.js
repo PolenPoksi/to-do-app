@@ -1,19 +1,19 @@
 import "./index.css"
 import React, { useState } from "react"
-import PopUp from "./PopUp"
+import Popup from "./PopUp"
+
 
 const App = () => {
+
   const [counter, setCounter] = useState(1)
   const [item, setItem] = useState("")
   const [defaultItems, setItems] = useState([])
 
-  const state = () => {
-    seen: false
-  }
-  const togglePop = () => {
-    this.setState({
-      seen: !this.state.seen,
-    })
+  // this is the popup
+
+  const [isOpen, setIsOpen] = useState(false);
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
   }
 
   const handleClick = (e) => {
@@ -56,11 +56,24 @@ const App = () => {
                   className='butoniVogel'
                   id={e.id}
                   onClick={handleDelete}
-                >
-                  {/* {" "} */}
-                  Delete
+                >Delete
                 </button>
-                <button className='butoniVogel'>Edit</button>
+                <button className='butoniVogel' onClick={togglePopup}>Edit{isOpen && <Popup content={
+                  <>
+                    <h3>Edit To Do</h3>
+                    <input
+                      className='inputi'
+                      type='text'
+                      name='item'
+                      onChange={(event) => setItem(event.target.value)}
+                    ></input>
+                    <div>
+                      <button onClick={togglePopup}></button>
+                    </div>
+                  </>
+                }
+                  handleClose={togglePopup} />}
+                </button>
               </div>
             </>
           )

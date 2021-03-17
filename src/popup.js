@@ -1,21 +1,16 @@
-import React, { Component } from "react"
+import React from 'react';
+import "./popup.css";
 
-const PopUp = () => {
-  handleClick = () => {
-    this.props.toggle()
-  }
+const Popup = props => {
   return (
     <>
-      <div className='modal'>
-        <div className='modal_content'>
-          <span className='close' onClick={this.handleClick}>
-            &times;
-          </span>
-          <p> Im a Pop Up</p>
+      <div className="popup-box">
+        <div className="box">
+          <span className="close-icon" onClick={props.handleClose}>x</span>{props.content}
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default PopUp
+export default Popup;
