@@ -1,17 +1,21 @@
-import { createContext, useState, useContext} from 'react';
+import React, { Component } from "react"
 
-const PopupContext = createContext();
-
-export const PopupProvider = ({ children }) => {
-
-    const [value, setValue] = useState();
-    const triggerPopup = text => setValue(text);
-    const clearPopup = () => setValue();
-    
-    return(
-        <PopupContext.Provider value = {{ value, triggerPopup, clearPopup }}>
-        </PopupContext.Provider>
-    );
-
+const PopUp = () => {
+  handleClick = () => {
+    this.props.toggle()
+  }
+  return (
+    <>
+      <div className='modal'>
+        <div className='modal_content'>
+          <span className='close' onClick={this.handleClick}>
+            &times;
+          </span>
+          <p> Im a Pop Up</p>
+        </div>
+      </div>
+    </>
+  )
 }
-export const usePopup = () => useContext(PopupContext);
+
+export default PopUp

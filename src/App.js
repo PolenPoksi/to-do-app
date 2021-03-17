@@ -1,10 +1,20 @@
 import "./index.css"
 import React, { useState } from "react"
+import PopUp from "./PopUp"
 
 const App = () => {
   const [counter, setCounter] = useState(1)
   const [item, setItem] = useState("")
   const [defaultItems, setItems] = useState([])
+
+  const state = () => {
+    seen: false
+  }
+  const togglePop = () => {
+    this.setState({
+      seen: !this.state.seen,
+    })
+  }
 
   const handleClick = (e) => {
     e.preventDefault()
@@ -50,7 +60,7 @@ const App = () => {
                   {/* {" "} */}
                   Delete
                 </button>
-                <button className='butoniVogel' >Edit</button>
+                <button className='butoniVogel'>Edit</button>
               </div>
             </>
           )
