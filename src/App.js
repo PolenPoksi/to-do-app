@@ -60,16 +60,12 @@ const App = () => {
                 </button>
                 <button className='butoniVogel' onClick={togglePopup}>Edit{isOpen && <Popup content={
                   <>
-                    <h3>Edit To Do</h3>
                     <input
                       className='inputi'
                       type='text'
                       name='item'
                       onChange={(event) => setItem(event.target.value)}
                     ></input>
-                    <div>
-                      <button onClick={togglePopup}></button>
-                    </div>
                   </>
                 }
                   handleClose={togglePopup} />}
