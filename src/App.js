@@ -1,22 +1,18 @@
 import "./index.css"
 import React, { useState } from "react"
-import PopUp from "./PopUp"
+import Popup from "./PopUp"
 
 const App = () => {
   const [counter, setCounter] = useState(1)
   const [item, setItem] = useState("")
   const [defaultItems, setItems] = useState([])
 
-  const state = () => {
-    seen: false
-  }
-  const togglePop = () => {
-    this.setState({
-      seen: !this.state.seen,
-    })
+  const [isOpen, setIsOpen] = useState(false)
+  const togglePopup = () => {
+    setIsOpen(!isOpen)
   }
 
-  const handleClick = (e) => {
+  const addToDo = (e) => {
     e.preventDefault()
     const newTodo = {
       todo: item,
@@ -24,13 +20,11 @@ const App = () => {
     }
     setItems([...defaultItems, newTodo])
     setCounter(counter + 1)
-    console.log(defaultItems)
+    setItem("")
   }
 
-  const handleDelete = (e) => {
-    const id = e.target.getAttribute("id")
+  const handleDelete = (id) => {
     setItems(defaultItems.filter((newToDo) => newToDo.id != id))
-    console.log(defaultItems)
   }
 
   return (
@@ -40,27 +34,39 @@ const App = () => {
           className='inputi'
           type='text'
           name='item'
+          value={item}
           onChange={(event) => setItem(event.target.value)}
         ></input>
-        <button className='buton' onClick={handleClick}>
+        <button className='buton' onClick={addToDo}>
           Add
         </button>
       </div>
       <div className='itemsat'>
-        {defaultItems.map((e) => {
+        {defaultItems.map((item) => {
           return (
             <>
-              <div className='njeitem'>
-                <div> {e.todo} </div>
+              <div id={item.id} className='njeitem'>
+                <div> {item.todo} </div>
                 <button
                   className='butoniVogel'
-                  id={e.id}
-                  onClick={handleDelete}
+                  onClick={() => handleDelete(item.id)}
                 >
-                  {/* {" "} */}
                   Delete
                 </button>
-                <button className='butoniVogel'>Edit</button>
+                <input
+                  type='button'
+                  className='butoniVogel'
+                  value='Edit'
+                  onClick={togglePopup}
+                />
+                {isOpen && (
+                  <Popup
+                    item={item}
+                    setItems={setItems}
+                    togglePopup={togglePopup}
+                    defaultItems={defaultItems}
+                  />
+                )}
               </div>
             </>
           )
