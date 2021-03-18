@@ -26,7 +26,6 @@ const App = () => {
   const handleDelete = (id) => {
     setItems(defaultItems.filter((newToDo) => newToDo.id != id))
   }
-
   return (
     <div className='container'>
       <div classname='cont'>
