@@ -1,6 +1,6 @@
 import "./index.css"
 import React, { useState } from "react"
-import Popup from "./PopUp"
+import Popup from "./popup"
 
 const App = () => {
   const [counter, setCounter] = useState(1)
