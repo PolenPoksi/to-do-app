@@ -3,8 +3,10 @@ import React from "react";
 import { Navbar, Container, Row, Col } from "react-bootstrap";
 
 // components
-import LisTodos from "./ListTodos";
-// import FirstPage from "./first-page";
+// import LisTodos from "./ListTodos";
+import FirstPage from "./first-page";
+// import InputTodo from "./InputTodo";
+// import DeleteCategory from "./DeleteCategory";
 
 function App() {
   return (
@@ -19,7 +21,7 @@ function App() {
             <Row>All tasks</Row>
           </Col>
           <Col sm={8}>
-            <LisTodos />
+            <FirstPage />
           </Col>
           <Col></Col>
         </Row>

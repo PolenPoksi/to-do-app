@@ -8,6 +8,20 @@
 .card.header {
   background-color: rgba(187, 204, 222, 0.5);
 }
-.card-body {
+
+#createCard {
+  border-radius: 2rem;
   background-color: rgba(187, 204, 222, 0.5);
+}
+#categButton {
+  border-radius: 0.5rem;
+  padding: 7px 18px;
+  border-style: none;
+  border-color: #fedbdf;
+  margin-right: 5px;
+  margin-top: 3px;
+  background: #fedbdf;
+  color: grey;
+  font-family: Arial;
+  font-size: 16px;
 }

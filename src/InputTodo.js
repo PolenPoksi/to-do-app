@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
+import { Card } from "react-bootstrap";
+import ListCategories from "./ListCategories";
 
 const InputTodo = () => {
-  const [description, setDescription] = useState("hello");
+  const [description, setDescription] = useState({
+    description: "New task",
+    note: "Notes for the task",
+  });
+
   const addTodo = async (e) => {
     e.preventDefault();
     try {
@@ -17,14 +23,40 @@ const InputTodo = () => {
     }
   };
   return (
-    <div className="container">
-      <input
-        type="text"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <button onClick={addTodo}>Add</button>
-    </div>
+    <Fragment>
+      <Card className="text-center" id="createCard">
+        <Card.Body>
+          <h2> Create</h2>
+          <h3>New task</h3>
+
+          <p>
+            <input
+              type="text"
+              name="description"
+              value={description.description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </p>
+        </Card.Body>
+        <Card.Footer>
+          <p>Notes</p>
+          <p>
+            <input
+              type="text"
+              name="note"
+              value={description.note}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </p>
+          <p>Category</p>
+          <ListCategories />
+          <hr />
+          <div>
+            <button onClick={addTodo}>Create Task</button>
+          </div>
+        </Card.Footer>
+      </Card>
+    </Fragment>
   );
 };
 
