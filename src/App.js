@@ -17,8 +17,12 @@ function App() {
       <Container>
         <Row>
           <Col>
-            <Row>Add task</Row>
-            <Row>All tasks</Row>
+            <Row></Row>
+            <Row></Row>
+            <Row>
+              <p id="addall">Add task</p>
+              <p id="addall">Add task</p>
+            </Row>
           </Col>
           <Col sm={8}>
             <FirstPage />

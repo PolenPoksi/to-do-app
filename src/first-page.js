@@ -8,14 +8,15 @@ const FirstPage = () => {
     <Fragment>
       <Container id="faqja1">
         <div>
-          <row>
-            <Media id="media">
+          <Media id="media">
+            <a href="/">
+              {/* do vendos linkun e faqes add to do  */}
               <img width={400} height={500} src={fotofaqja1} />
-            </Media>
-            <p id="texti">
-              There is no note available, press on "+" to add new
-            </p>
-          </row>
+            </a>
+          </Media>
+          <p className="texti">
+            There is no note available, press on "+" to add new
+          </p>
         </div>
       </Container>
     </Fragment>
