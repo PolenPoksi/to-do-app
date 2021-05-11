@@ -4,8 +4,8 @@ import { Navbar, Container, Row, Col } from "react-bootstrap";
 
 // components
 // import LisTodos from "./ListTodos";
-import FirstPage from "./first-page";
-// import InputTodo from "./InputTodo";
+// import FirstPage from "./first-page";
+import InputTodo from "./InputTodo";
 // import DeleteCategory from "./DeleteCategory";
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
             </Row>
           </Col>
           <Col sm={8}>
-            <FirstPage />
+            <InputTodo />
           </Col>
           <Col></Col>
         </Row>

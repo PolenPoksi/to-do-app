@@ -1,11 +1,13 @@
 import React, { Fragment, useState } from "react";
 import { Card } from "react-bootstrap";
+import { propTypes } from "react-bootstrap/esm/Image";
 import ListCategories from "./ListCategories";
 
 const InputTodo = () => {
   const [description, setDescription] = useState({
     description: "New task",
     note: "Notes for the task",
+    category_id: "",
   });
 
   const addTodo = async (e) => {
@@ -48,8 +50,11 @@ const InputTodo = () => {
               onChange={(e) => setDescription(e.target.value)}
             />
           </p>
-          <p>Category</p>
-          <ListCategories />
+          <ListCategories
+            value={description.category_id}
+            key={propTypes.id}
+            {...propTypes}
+          />
           <hr />
           <div>
             <button onClick={addTodo}>Create Task</button>
