@@ -1,18 +1,15 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { propTypes } from "react-bootstrap/esm/Image";
 
 import "./index.css";
 
 const ListCategories = (propTypes) => {
   const [category, setCategory] = useState([
     {
-      name: "",
-      id: "",
+      category_id: "",
+      category: "",
     },
   ]);
-  const { name, id } = propTypes;
-
-  const putCategory = async () => {
+  const PutCategory = async () => {
     try {
       const response = await fetch("http://localhost:5000/category");
       const jsonData = await response.json();
@@ -22,9 +19,8 @@ const ListCategories = (propTypes) => {
       console.error(err.message);
     }
   };
-
   useEffect(() => {
-    putCategory();
+    PutCategory();
   }, []);
 
   const GetCategory = async (e) => {
@@ -38,16 +34,28 @@ const ListCategories = (propTypes) => {
     }
   };
 
-  const clickHandler = (cat) => {
-    GetCategory(cat.category_id);
-  };
+  function CategoryButton(propTypes) {
+    return (
+      <Fragment>
+        {category.map((propTypes) => (
+          <button
+            className="categButton"
+            key={propTypes.category_id}
+            value={propTypes.category_id}
+            onClick={(propTypes) => {
+              GetCategory(propTypes.target.value);
+            }}
+          >
+            {propTypes.category}
+          </button>
+        ))}
+      </Fragment>
+    );
+  }
+
   return (
     <Fragment>
-      {category.map((cat) => (
-        <button id="categButton" key={cat.category_id} onClick={clickHandler}>
-          {cat.category}
-        </button>
-      ))}
+      <CategoryButton id={propTypes.category_id} />
     </Fragment>
   );
 };

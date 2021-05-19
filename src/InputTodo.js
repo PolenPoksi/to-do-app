@@ -10,6 +10,12 @@ const InputTodo = () => {
     category_id: "",
   });
 
+  // const InsertCategory = () => {
+  //   const category_id = {propTypes.category_id};
+  //   setDescription =
+
+  // }
+
   const addTodo = async (e) => {
     e.preventDefault();
     try {
@@ -24,6 +30,15 @@ const InputTodo = () => {
       console.error(err.message);
     }
   };
+
+  function MerrCategory(propTypes) {
+    return (
+      <Fragment>
+        <ListCategories {...propTypes} id={propTypes.category_id} />
+      </Fragment>
+    );
+  }
+
   return (
     <Fragment>
       <Card className="text-center" id="createCard">
@@ -50,11 +65,7 @@ const InputTodo = () => {
               onChange={(e) => setDescription(e.target.value)}
             />
           </p>
-          <ListCategories
-            value={description.category_id}
-            key={propTypes.id}
-            {...propTypes}
-          />
+          <MerrCategory />
           <hr />
           <div>
             <button onClick={addTodo}>Create Task</button>
