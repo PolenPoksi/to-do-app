@@ -24,7 +24,7 @@ const ListCategories = (propTypes) => {
   }, []);
 
   const GetCategory = async (e) => {
-    console.log(e);
+    // console.log(e);
     try {
       const jsonData = await fetch(`http://localhost:5000/category/${e}`, {
         method: "GET",
@@ -40,7 +40,7 @@ const ListCategories = (propTypes) => {
         {category.map((propTypes) => (
           <button
             className="categButton"
-            key={propTypes.category_id}
+            key={propTypes.category.id}
             value={propTypes.category_id}
             onClick={(propTypes) => {
               GetCategory(propTypes.target.value);

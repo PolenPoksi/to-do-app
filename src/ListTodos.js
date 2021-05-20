@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import EditTodo from "./EditTodo";
+
 import { Button, Card } from "react-bootstrap";
 import "./index.css";
 
@@ -18,6 +18,7 @@ const LisTodos = () => {
   useEffect(() => {
     getTodos();
   }, []);
+
   const deleteTodo = async (id) => {
     try {
       const deleteTodo = await fetch(`http://localhost:5000/todos/${id}`, {
@@ -31,25 +32,28 @@ const LisTodos = () => {
 
   return (
     <Fragment>
-      <Card className="text-center">
+      <Card className="text-center" id="createCard1">
         <Card.Header>
-          <p> ktu jane kategorite</p>
+          <h3> Ketu jane gjithe tasket per tu bere: </h3>
         </Card.Header>
         <Card.Body>
           {todos.map((todo) => (
             <div>
-              {todo.description} {todo.note}
-              <Button key={todo.todo_id} variant="primary">
+              <h4>{todo.description}</h4>
+              <p>{todo.note}</p>
+
+              <Button key={todo.todo_id} className="categButton">
                 Edit
               </Button>
-              <EditTodo />
+
               <button
-                className="btn btn-danger"
+                className="categButton"
                 key={todo.todo_id}
                 onClick={() => deleteTodo(todo.todo_id)}
               >
                 Delete
               </button>
+              <hr />
             </div>
           ))}
         </Card.Body>

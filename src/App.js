@@ -3,10 +3,10 @@ import React from "react";
 import { Navbar, Container, Row, Col } from "react-bootstrap";
 
 // components
-// import LisTodos from "./ListTodos";
-// import FirstPage from "./first-page";
-import InputTodo from "./InputTodo";
-// import DeleteCategory from "./DeleteCategory";
+// import LisTodos from "./ListTodos"; can do better
+// import FirstPage from "./first-page"; Check
+// import InputTodo from "./InputTodo";  Check
+import DeleteCategory from "./DeleteCategory";
 
 function App() {
   return (
@@ -16,16 +16,16 @@ function App() {
       </Navbar>
       <Container>
         <Row>
-          <Col>
-            <Row></Row>
-            <Row></Row>
+          <Col id="addall">
             <Row>
-              <p id="addall">Add task</p>
-              <p id="addall">Add task</p>
+              <button className="butonatFillestare">All Tasks</button>
+            </Row>
+            <Row>
+              <button className="butonatFillestare">Add Task</button>{" "}
             </Row>
           </Col>
           <Col sm={8}>
-            <InputTodo />
+            <DeleteCategory />
           </Col>
           <Col></Col>
         </Row>

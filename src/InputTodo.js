@@ -10,12 +10,6 @@ const InputTodo = () => {
     category_id: "",
   });
 
-  // const InsertCategory = () => {
-  //   const category_id = {propTypes.category_id};
-  //   setDescription =
-
-  // }
-
   const addTodo = async (e) => {
     e.preventDefault();
     try {
@@ -31,23 +25,30 @@ const InputTodo = () => {
     }
   };
 
-  function MerrCategory(propTypes) {
-    return (
-      <Fragment>
-        <ListCategories {...propTypes} id={propTypes.category_id} />
-      </Fragment>
-    );
-  }
+  // function MerrCategory(propTypes) {
+  //   return (
+  //     <Fragment>
+  //       <ListCategories
+  //         {...propTypes}
+  //         id={propTypes.category_id}
+  //         value={propTypes.category_id}
+  //         key={propTypes.category_id}
+  //         onChange={(e) => setDescription(e.target.value)}
+  //       />
+  //     </Fragment>
+  //   );
+  // }
 
   return (
     <Fragment>
       <Card className="text-center" id="createCard">
         <Card.Body>
-          <h2> Create</h2>
-          <h3>New task</h3>
+          <h3> Create</h3>
+          <h2>Task name</h2>
 
           <p>
             <input
+              className="inputiForma"
               type="text"
               name="description"
               value={description.description}
@@ -56,19 +57,23 @@ const InputTodo = () => {
           </p>
         </Card.Body>
         <Card.Footer>
-          <p>Notes</p>
+          <h5>Notes:</h5>
           <p>
             <input
+              className="inputiForma"
               type="text"
               name="note"
               value={description.note}
               onChange={(e) => setDescription(e.target.value)}
             />
           </p>
-          <MerrCategory />
+          <h5>Click to set category:</h5>
+          <ListCategories {...propTypes} id={propTypes.category_id} />
           <hr />
           <div>
-            <button onClick={addTodo}>Create Task</button>
+            <button onClick={addTodo} className="butoniShto">
+              Create Task
+            </button>
           </div>
         </Card.Footer>
       </Card>
