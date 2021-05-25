@@ -68,7 +68,12 @@ const InputTodo = () => {
             />
           </p>
           <h5>Click to set category:</h5>
-          <ListCategories {...propTypes} id={propTypes.category_id} />
+          <ListCategories
+            {...propTypes}
+            id={propTypes.category_id}
+            setDescription={setDescription}
+            description={description}
+          />
           <hr />
           <div>
             <button onClick={addTodo} className="butoniShto">

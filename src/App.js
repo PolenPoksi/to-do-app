@@ -3,10 +3,11 @@ import React from "react";
 import { Navbar, Container, Row, Col } from "react-bootstrap";
 
 // components
-// import LisTodos from "./ListTodos"; can do better
+import LisTodos from "./ListTodos";
 // import FirstPage from "./first-page"; Check
-// import InputTodo from "./InputTodo";  Check
-import DeleteCategory from "./DeleteCategory";
+// import InputTodo from "./InputTodo";
+// import DeleteCategory from "./DeleteCategory";
+// import PopupDelete from "./popupDelete";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
             </Row>
           </Col>
           <Col sm={8}>
-            <DeleteCategory />
+            <LisTodos />
           </Col>
           <Col></Col>
         </Row>

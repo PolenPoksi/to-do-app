@@ -1,8 +1,9 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { propTypes } from "react-bootstrap/esm/Image";
 
 import "./index.css";
 
-const ListCategories = (propTypes) => {
+const ListCategories = ({ propTypes, setDescription }) => {
   const [category, setCategory] = useState([
     {
       category_id: "",
@@ -34,7 +35,11 @@ const ListCategories = (propTypes) => {
     }
   };
 
-  function CategoryButton(propTypes) {
+  function CategoryButton() {
+    // const addidtostate = (e) => {
+    //   setDescription(e.target.value);
+    // };
+
     return (
       <Fragment>
         {category.map((propTypes) => (
@@ -44,6 +49,7 @@ const ListCategories = (propTypes) => {
             value={propTypes.category_id}
             onClick={(propTypes) => {
               GetCategory(propTypes.target.value);
+              // addidtostate();
             }}
           >
             {propTypes.category}
@@ -55,7 +61,8 @@ const ListCategories = (propTypes) => {
 
   return (
     <Fragment>
-      <CategoryButton id={propTypes.category_id} />
+      <CategoryButton />
+      {/* id={propTypes.category_id} */}
     </Fragment>
   );
 };

@@ -118,3 +118,10 @@
   line-height: 29px;
   color: #000000;
 }
+
+.popup-backdrop {
+  background-color: #dcdcdc !important;
+}
+.my-modal .modal-content {
+  background-color: #f6f6f6 !important;
+}

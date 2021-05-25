@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Modal } from "react-bootstrap";
+
 import "./index.css";
 
 const LisTodos = () => {
@@ -30,6 +31,11 @@ const LisTodos = () => {
     }
   };
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <Fragment>
       <Card className="text-center" id="createCard1">
@@ -45,14 +51,31 @@ const LisTodos = () => {
               <Button key={todo.todo_id} className="categButton">
                 Edit
               </Button>
-
-              <button
-                className="categButton"
-                key={todo.todo_id}
-                onClick={() => deleteTodo(todo.todo_id)}
-              >
+              <Button className="categButton" onClick={handleShow}>
                 Delete
-              </button>
+              </Button>
+              <Modal
+                show={show}
+                onHide={handleClose}
+                animation={false}
+                id="popup"
+                className="my-modal"
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title>Modal heading</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  Woohoo, you're reading this text in a modal!
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="secondary" onClick={handleClose}>
+                    Close
+                  </Button>
+                  <Button variant="primary" onClick={handleClose}>
+                    Delete
+                  </Button>
+                </Modal.Footer>
+              </Modal>
               <hr />
             </div>
           ))}
@@ -61,5 +84,13 @@ const LisTodos = () => {
     </Fragment>
   );
 };
+
+// <button
+//   className="categButton"
+//   key={todo.todo_id}
+//   onClick={() => deleteTodo(todo.todo_id)}
+// >
+//   Delete
+// </button>;
 
 export default LisTodos;
