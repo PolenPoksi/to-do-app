@@ -1,69 +1,52 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { propTypes } from "react-bootstrap/esm/Image";
+import React, { useEffect, useState } from "react";
 
 import "./index.css";
 
-const ListCategories = ({ propTypes, setDescription }) => {
+const ListCategories = ({ setDescription, description }) => {
   const [category, setCategory] = useState([
     {
       category_id: "",
       category: "",
     },
   ]);
-  const PutCategory = async () => {
+  const GetCategory = async () => {
     try {
       const response = await fetch("http://localhost:5000/category");
       const jsonData = await response.json();
-      console.log(jsonData);
       setCategory(jsonData);
     } catch (err) {
       console.error(err.message);
     }
   };
   useEffect(() => {
-    PutCategory();
+    GetCategory();
   }, []);
 
-  const GetCategory = async (e) => {
-    // console.log(e);
-    try {
-      const jsonData = await fetch(`http://localhost:5000/category/${e}`, {
-        method: "GET",
-      });
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
-
   function CategoryButton() {
-    // const addidtostate = (e) => {
-    //   setDescription(e.target.value);
-    // };
-
     return (
-      <Fragment>
-        {category.map((propTypes) => (
-          <button
-            className="categButton"
-            key={propTypes.category.id}
-            value={propTypes.category_id}
-            onClick={(propTypes) => {
-              GetCategory(propTypes.target.value);
-              // addidtostate();
-            }}
-          >
-            {propTypes.category}
-          </button>
-        ))}
-      </Fragment>
+      <>
+        {category.map((c) => {
+          return (
+            <button
+              className="categButton"
+              key={c.category_id}
+              value={c.category_id}
+              onClick={() => {
+                setDescription({ ...description, category_id: c.category_id });
+              }}
+            >
+              {c.category}
+            </button>
+          );
+        })}
+      </>
     );
   }
 
   return (
-    <Fragment>
+    <>
       <CategoryButton />
-      {/* id={propTypes.category_id} */}
-    </Fragment>
+    </>
   );
 };
 

@@ -25,20 +25,6 @@ const InputTodo = () => {
     }
   };
 
-  // function MerrCategory(propTypes) {
-  //   return (
-  //     <Fragment>
-  //       <ListCategories
-  //         {...propTypes}
-  //         id={propTypes.category_id}
-  //         value={propTypes.category_id}
-  //         key={propTypes.category_id}
-  //         onChange={(e) => setDescription(e.target.value)}
-  //       />
-  //     </Fragment>
-  //   );
-  // }
-
   return (
     <Fragment>
       <Card className="text-center" id="createCard">
@@ -69,8 +55,6 @@ const InputTodo = () => {
           </p>
           <h5>Click to set category:</h5>
           <ListCategories
-            {...propTypes}
-            id={propTypes.category_id}
             setDescription={setDescription}
             description={description}
           />

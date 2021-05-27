@@ -26,6 +26,7 @@ const LisTodos = () => {
         method: "DELETE",
       });
       setTodos(todos.filter((todo) => todo.todo_id !== id));
+      setShow(false);
     } catch (err) {
       console.error(err.message);
     }
@@ -62,16 +63,20 @@ const LisTodos = () => {
                 className="my-modal"
               >
                 <Modal.Header closeButton>
-                  <Modal.Title>Modal heading</Modal.Title>
+                  <Modal.Title>
+                    Are you sure you want to delete this todo item ?
+                  </Modal.Title>
                 </Modal.Header>
-                <Modal.Body>
-                  Woohoo, you're reading this text in a modal!
-                </Modal.Body>
+
                 <Modal.Footer>
                   <Button variant="secondary" onClick={handleClose}>
                     Close
                   </Button>
-                  <Button variant="primary" onClick={handleClose}>
+                  <Button
+                    className="btn-danger"
+                    key={todo.todo_id}
+                    onClick={() => deleteTodo(todo.todo_id)}
+                  >
                     Delete
                   </Button>
                 </Modal.Footer>
