@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { Card, Dropdown } from "react-bootstrap";
 import DropdownButton from "react-bootstrap/DropdownButton";
+import AllTasks from "./AllTasks";
 
 import "./index.css";
-import LisTodos from "./ListTodos";
 
-const DeleteCategory = () => {
+const TasksByCategory = () => {
   const [category, setCategory] = useState([]);
 
   const getCategory = async () => {
@@ -57,12 +57,11 @@ const DeleteCategory = () => {
               </Dropdown.Item>
             ))}
           </DropdownButton>
-          <LisTodos />
+          <AllTasks />
         </Card.Body>
-        {/* <Card.Footer></Card.Footer> */}
       </Card>
     </Fragment>
   );
 };
 
-export default DeleteCategory;
+export default TasksByCategory;

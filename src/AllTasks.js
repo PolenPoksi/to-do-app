@@ -4,7 +4,7 @@ import { Button, Card, Modal } from "react-bootstrap";
 
 import "./index.css";
 
-const LisTodos = () => {
+const AllTasks = () => {
   const [todos, setTodos] = useState([]);
 
   const getTodos = async () => {
@@ -90,12 +90,4 @@ const LisTodos = () => {
   );
 };
 
-// <button
-//   className="categButton"
-//   key={todo.todo_id}
-//   onClick={() => deleteTodo(todo.todo_id)}
-// >
-//   Delete
-// </button>;
-
-export default LisTodos;
+export default AllTasks;

@@ -1,9 +1,8 @@
 import React, { Fragment, useState } from "react";
 import { Card } from "react-bootstrap";
-import { propTypes } from "react-bootstrap/esm/Image";
-import ListCategories from "./ListCategories";
+import TasksByCategory from "./TasksByCategory";
 
-const InputTodo = () => {
+const NewTask = () => {
   const [description, setDescription] = useState({
     description: "New task",
     note: "Notes for the task",
@@ -54,7 +53,7 @@ const InputTodo = () => {
             />
           </p>
           <h5>Click to set category:</h5>
-          <ListCategories
+          <TasksByCategory
             setDescription={setDescription}
             description={description}
           />
@@ -70,4 +69,4 @@ const InputTodo = () => {
   );
 };
 
-export default InputTodo;
+export default NewTask;

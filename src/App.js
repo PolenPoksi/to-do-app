@@ -1,13 +1,13 @@
 import "./index.css";
 import React from "react";
 import { Navbar, Container, Row, Col } from "react-bootstrap";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 // components
-// import LisTodos from "./ListTodos";
-// import FirstPage from "./first-page"; Check
-import InputTodo from "./InputTodo";
-// import DeleteCategory from "./DeleteCategory";
-// import PopupDelete from "./popupDelete";
+import Home from "./Home";
+import NewTask from "./NewTask";
+import AllTasks from "./AllTasks";
+import TasksByCategory from "./TasksByCategory";
 
 function App() {
   return (
@@ -16,20 +16,7 @@ function App() {
         <h3 className="nav-paragraph">This is a notebook</h3>
       </Navbar>
       <Container>
-        <Row>
-          <Col id="addall">
-            <Row>
-              <button className="butonatFillestare">All Tasks</button>
-            </Row>
-            <Row>
-              <button className="butonatFillestare">Add Task</button>{" "}
-            </Row>
-          </Col>
-          <Col sm={8}>
-            <InputTodo />
-          </Col>
-          <Col></Col>
-        </Row>
+        <Home />
       </Container>
     </>
   );
