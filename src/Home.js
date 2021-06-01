@@ -1,43 +1,35 @@
-import React, { Fragment } from "react";
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import "./index.css";
 import fotofaqja1 from "./images/fotofaqja1.svg";
 
+import NewTask from "./NewTask";
+
 const Home = () => {
   return (
-    <Fragment>
+    <>
       <Container id="faqja1">
-        <Row>
-          <Col id="addall">
-            <Row>
-              <button className="butonatFillestare">All Tasks</button>
-            </Row>
-            <Row>
-              <button className="butonatFillestare">Add Task</button>
-            </Row>
-          </Col>
-          <Col sm={8}>
-            <Row>
-              <Col xs={4} md={2}></Col>
-              <Col id="media">
-                <a href="/">
-                  <img width={420} height={500} src={fotofaqja1} />
-                </a>
-              </Col>
-            </Row>
-            <Row>
-              <Col xs={4} md={2}></Col>
-              <Col>
-                <p className="texti">
-                  There is no note available, press on "+" to add new
-                </p>
-              </Col>
-            </Row>
-          </Col>
-          <Col></Col>
-        </Row>
+        <Router>
+          <Row>
+            <Col xs={4} md={2}></Col>
+            <Col id="media">
+              <Link to="/NewTask">
+                <img width={420} height={500} src={fotofaqja1} />
+              </Link>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={4} md={2}></Col>
+            <Col>
+              <p className="texti">
+                There is no note available, press on "+" to add new
+              </p>
+            </Col>
+          </Row>
+        </Router>
       </Container>
-    </Fragment>
+    </>
   );
 };
 

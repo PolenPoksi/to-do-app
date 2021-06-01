@@ -16,7 +16,51 @@ function App() {
         <h3 className="nav-paragraph">This is a notebook</h3>
       </Navbar>
       <Container>
-        <Home />
+        <Router>
+          <Row>
+            <Col id="addall">
+              <Row>
+                <Link to="/">
+                  <button className="butonatFillestare">Home</button>
+                </Link>
+              </Row>
+              <Row>
+                <Link to="/NewTask">
+                  <button className="butonatFillestare">Add Task</button>
+                </Link>
+              </Row>
+              <Row>
+                <Link to="/AllTasks">
+                  <button className="butonatFillestare">All Tasks</button>
+                </Link>
+              </Row>
+              <Row>
+                <Link to="/TasksByCategory">
+                  <button className="butonatFillestare">
+                    Tasks By Category
+                  </button>
+                </Link>
+              </Row>
+            </Col>
+            <Col sm={9}>
+              <Switch>
+                <Route exact path="/">
+                  <Home />
+                </Route>
+                <Route exact path="/NewTask">
+                  <NewTask />
+                </Route>
+                <Route exact path="/AllTasks">
+                  <AllTasks />
+                </Route>
+                <Route exact path="/TasksByCategory">
+                  <TasksByCategory />
+                </Route>
+              </Switch>
+            </Col>
+            <Col></Col>
+          </Row>
+        </Router>
       </Container>
     </>
   );

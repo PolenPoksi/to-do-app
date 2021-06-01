@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import "./index.css";
 
-const ListCategories = ({ setDescription, description }) => {
+const ListCategories = ({ setNewTodo, newTodo }) => {
   const [category, setCategory] = useState([
     {
       category_id: "",
@@ -32,7 +32,7 @@ const ListCategories = ({ setDescription, description }) => {
               key={c.category_id}
               value={c.category_id}
               onClick={() => {
-                setDescription({ ...description, category_id: c.category_id });
+                setNewTodo({ ...newTodo, category_id: c.category_id });
               }}
             >
               {c.category}

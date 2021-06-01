@@ -1,9 +1,9 @@
 import React, { Fragment, useState } from "react";
 import { Card } from "react-bootstrap";
-import TasksByCategory from "./TasksByCategory";
+import ListCategories from "./ListCategories";
 
 const NewTask = () => {
-  const [description, setDescription] = useState({
+  const [newTodo, setNewTodo] = useState({
     description: "New task",
     note: "Notes for the task",
     category_id: "",
@@ -12,13 +12,13 @@ const NewTask = () => {
   const addTodo = async (e) => {
     e.preventDefault();
     try {
-      const body = { description };
+      const body = newTodo;
       const response = fetch("http://localhost:5000/todos", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
-      window.location = "/";
+      window.location = "/AllTasks";
     } catch (err) {
       console.error(err.message);
     }
@@ -30,14 +30,16 @@ const NewTask = () => {
         <Card.Body>
           <h3> Create</h3>
           <h2>Task name</h2>
-
           <p>
             <input
               className="inputiForma"
               type="text"
               name="description"
-              value={description.description}
-              onChange={(e) => setDescription(e.target.value)}
+              value={newTodo.description}
+              onChange={(e) => {
+                setNewTodo({ ...newTodo, description: e.target.value });
+                console.log(e.target.value);
+              }}
             />
           </p>
         </Card.Body>
@@ -48,15 +50,14 @@ const NewTask = () => {
               className="inputiForma"
               type="text"
               name="note"
-              value={description.note}
-              onChange={(e) => setDescription(e.target.value)}
+              value={newTodo.note}
+              onChange={(e) => {
+                setNewTodo({ ...newTodo, note: e.target.value });
+              }}
             />
           </p>
           <h5>Click to set category:</h5>
-          <TasksByCategory
-            setDescription={setDescription}
-            description={description}
-          />
+          <ListCategories setNewTodo={setNewTodo} newTodo={newTodo} />
           <hr />
           <div>
             <button onClick={addTodo} className="butoniShto">

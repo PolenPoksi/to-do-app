@@ -6,6 +6,7 @@ import "./index.css";
 
 const AllTasks = () => {
   const [todos, setTodos] = useState([]);
+  const [todoToBeDel, setTodoToBeDel] = useState();
 
   const getTodos = async () => {
     try {
@@ -35,7 +36,10 @@ const AllTasks = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleShow = (id) => {
+    setShow(true);
+    setTodoToBeDel(id);
+  };
 
   return (
     <Fragment>
@@ -45,45 +49,49 @@ const AllTasks = () => {
         </Card.Header>
         <Card.Body>
           {todos.map((todo) => (
-            <div>
+            <div key={todo.todo_id}>
               <h4>{todo.description}</h4>
               <p>{todo.note}</p>
 
               <Button key={todo.todo_id} className="categButton">
                 Edit
               </Button>
-              <Button className="categButton" onClick={handleShow}>
+              <Button
+                className="categButton"
+                onClick={() => handleShow(todo.todo_id)}
+              >
                 Delete
               </Button>
-              <Modal
-                show={show}
-                onHide={handleClose}
-                animation={false}
-                id="popup"
-                className="my-modal"
-              >
-                <Modal.Header closeButton>
-                  <Modal.Title>
-                    Are you sure you want to delete this todo item ?
-                  </Modal.Title>
-                </Modal.Header>
 
-                <Modal.Footer>
-                  <Button variant="secondary" onClick={handleClose}>
-                    Close
-                  </Button>
-                  <Button
-                    className="btn-danger"
-                    key={todo.todo_id}
-                    onClick={() => deleteTodo(todo.todo_id)}
-                  >
-                    Delete
-                  </Button>
-                </Modal.Footer>
-              </Modal>
               <hr />
             </div>
           ))}
+          <Modal
+            show={show}
+            onHide={handleClose}
+            animation={false}
+            id="popup"
+            className="my-modal"
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>
+                Are you sure you want to delete this todo item ?
+              </Modal.Title>
+            </Modal.Header>
+
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button
+                className="btn-danger"
+                // key={todo.todo_id}
+                onClick={() => deleteTodo(todoToBeDel)}
+              >
+                Delete
+              </Button>
+            </Modal.Footer>
+          </Modal>
         </Card.Body>
       </Card>
     </Fragment>
