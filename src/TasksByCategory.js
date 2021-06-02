@@ -1,6 +1,12 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Card, Dropdown, Button } from "react-bootstrap";
-import DropdownButton from "react-bootstrap/DropdownButton";
+import {
+  Card,
+  Button,
+  ButtonToolbar,
+  ButtonGroup,
+  Pagination,
+} from "react-bootstrap";
+
 import AllTasks from "./AllTasks";
 
 import "./index.css";
@@ -36,24 +42,30 @@ const TasksByCategory = () => {
     <Fragment>
       <Card className="text-center" id="createCard">
         <Card.Body>
-          <h5> Zgjidh kategori per afishim</h5>
-          {category.map((category) => (
-            <button id="categButton1" key={category.category_id}>
-              {category.category}
-            </button>
-          ))}
-          <hr />
-          <DropdownButton variant="secondary" title="Fshi Kategori">
+          <p>
+            <h5> Zgjidh kategori per afishim</h5>
+          </p>
+          <Pagination>
+            <Pagination.Prev />
+
             {category.map((category) => (
-              <Dropdown.Item
-                href="#/fshiKategori"
-                key={category.category_id}
-                onClick={() => fshiKategori(category.category_id)}
-              >
-                {category.category}
-              </Dropdown.Item>
+              <ButtonGroup className="mr-2" aria-label="Grupi par">
+                <Button className="categButton">{category.category}</Button>
+                <Button
+                  className="categButton"
+                  key={category.category_id}
+                  onClick={() => fshiKategori(category.category_id)}
+                >
+                  x
+                </Button>
+              </ButtonGroup>
             ))}
-          </DropdownButton>
+
+            <Pagination.Next />
+          </Pagination>
+
+          <hr />
+
           <AllTasks />
         </Card.Body>
       </Card>

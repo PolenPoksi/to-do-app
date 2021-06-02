@@ -63,22 +63,30 @@ const NewTask = () => {
               }}
             />
           </p>
-          <p>
-            <h5>Date:</h5>
-          </p>
-          <p>
-            <DatePicker
-              setNewTodo={setNewTodo}
-              newTodo={newTodo}
-              selected={startDate}
-              onChange={(date) => {
-                setStartDate(date);
-                setNewTodo({ ...newTodo, date: startDate });
-              }}
-            />
-          </p>
-          <h5>Click to set category:</h5>
-          <ListCategories setNewTodo={setNewTodo} newTodo={newTodo} />
+          <div>
+            <p>
+              <h5>Date:</h5>
+            </p>
+            <p>
+              <DatePicker
+                setNewTodo={setNewTodo}
+                newTodo={newTodo}
+                selected={startDate}
+                onChange={(date) => {
+                  setStartDate(date);
+                  setNewTodo({ ...newTodo, date: startDate });
+                }}
+              />
+            </p>
+          </div>
+          <div>
+            <p>
+              <h5>Click to set category:</h5>
+            </p>
+            <p>
+              <ListCategories setNewTodo={setNewTodo} newTodo={newTodo} />
+            </p>
+          </div>
           <hr />
           <div>
             <button onClick={addTodo} className="butoniShto">

@@ -14,17 +14,13 @@
   min-height: 700px;
 }
 .categButton {
-  border-radius: 0.5rem !important;
-  padding: 7px 18px !important;
   border-style: none !important;
   border-color: #fedbdf !important;
-  margin-right: 5px !important;
   background: #fedbdf !important;
   color: grey !important;
   font-family: Arial !important;
   font-size: 16px !important;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-left: 5px;
 }
 
 #createCard1 {
@@ -32,25 +28,6 @@
   background-color: rgba(252, 250, 251, 0.5);
   color: #555454;
   margin-top: 30px;
-}
-
-#categButton1 {
-  box-shadow: inset 0px 1px 0px 0px #ffffff;
-  background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
-  background-color: #ffffff;
-  border-radius: 6px;
-  border: 1px solid #dcdcdc;
-  display: inline-block;
-  cursor: pointer;
-  color: #666666;
-  font-family: Arial;
-  font-size: 15px;
-  font-weight: bold;
-  padding: 6px 24px;
-  text-decoration: none;
-  text-shadow: 0px 1px 0px #ffffff;
-  margin-right: 2px;
-  margin-top: 5px;
 }
 
 #addall {
@@ -75,7 +52,7 @@
   margin-bottom: 10px;
   width: 300px;
   height: 40px;
-  font-size: 18px;
+  font-size: 17px;
   border-width: 0.1px;
   border-color: rgba(218, 227, 238, 0.5);
   box-shadow: -2px 1px 0px rgba(66, 66, 66, 0.75);
@@ -91,8 +68,8 @@
   margin-top: 10px;
   margin-bottom: 10px;
   width: 300px;
-  height: 40px;
-  font-size: 18px;
+  height: 37px;
+  font-size: 17px;
   border-width: 0.1px;
   border-color: white;
   box-shadow: -2px 1px 0px rgba(66, 66, 66, 0.75);
@@ -116,8 +93,7 @@
   font-size: 20px;
   padding: 10px 70px;
   text-decoration: none;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 30px;
 }
 #media {
   margin-top: 70px;
