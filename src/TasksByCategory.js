@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Card, Dropdown } from "react-bootstrap";
+import { Card, Dropdown, Button } from "react-bootstrap";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import AllTasks from "./AllTasks";
 
@@ -20,8 +20,6 @@ const TasksByCategory = () => {
   useEffect(() => {
     getCategory();
   }, []);
-
-  // update or delete on table "category" violates foreign key constraint "todo_category_id_fkey" on table "todo"
 
   const fshiKategori = async (id) => {
     try {
@@ -48,8 +46,7 @@ const TasksByCategory = () => {
           <DropdownButton variant="secondary" title="Fshi Kategori">
             {category.map((category) => (
               <Dropdown.Item
-                href="#/action-1"
-                id="categButton"
+                href="#/fshiKategori"
                 key={category.category_id}
                 onClick={() => fshiKategori(category.category_id)}
               >

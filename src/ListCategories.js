@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Button } from "react-bootstrap";
 
 import "./index.css";
 
@@ -27,7 +28,7 @@ const ListCategories = ({ setNewTodo, newTodo }) => {
       <>
         {category.map((c) => {
           return (
-            <button
+            <Button
               className="categButton"
               key={c.category_id}
               value={c.category_id}
@@ -36,7 +37,7 @@ const ListCategories = ({ setNewTodo, newTodo }) => {
               }}
             >
               {c.category}
-            </button>
+            </Button>
           );
         })}
       </>

@@ -18,12 +18,19 @@ function App() {
       <Container>
         <Router>
           <Row>
+            {/* <Col>
+              <hr id="line" />
+              <hr id="line" />
+              <hr id="line" />
+              <hr id="line" />
+            </Col> */}
             <Col id="addall">
               <Row>
                 <Link to="/">
                   <button className="butonatFillestare">Home</button>
                 </Link>
               </Row>
+
               <Row>
                 <Link to="/NewTask">
                   <button className="butonatFillestare">Add Task</button>

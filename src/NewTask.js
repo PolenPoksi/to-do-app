@@ -1,13 +1,20 @@
 import React, { Fragment, useState } from "react";
 import { Card } from "react-bootstrap";
 import ListCategories from "./ListCategories";
+import background from "./images/backgr.png";
+
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const NewTask = () => {
   const [newTodo, setNewTodo] = useState({
     description: "New task",
     note: "Notes for the task",
     category_id: "",
+    date: "",
   });
+
+  const [startDate, setStartDate] = useState(new Date());
 
   const addTodo = async (e) => {
     e.preventDefault();
@@ -43,16 +50,30 @@ const NewTask = () => {
             />
           </p>
         </Card.Body>
-        <Card.Footer>
+        <Card.Footer id="noteback">
           <h5>Notes:</h5>
           <p>
             <input
-              className="inputiForma"
+              className="noteForma"
               type="text"
               name="note"
               value={newTodo.note}
               onChange={(e) => {
                 setNewTodo({ ...newTodo, note: e.target.value });
+              }}
+            />
+          </p>
+          <p>
+            <h5>Date:</h5>
+          </p>
+          <p>
+            <DatePicker
+              setNewTodo={setNewTodo}
+              newTodo={newTodo}
+              selected={startDate}
+              onChange={(date) => {
+                setStartDate(date);
+                setNewTodo({ ...newTodo, date: startDate });
               }}
             />
           </p>
