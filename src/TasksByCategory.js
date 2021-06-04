@@ -1,11 +1,5 @@
-import React, { Fragment, useEffect, useState } from "react";
-import {
-  Card,
-  Button,
-  ButtonToolbar,
-  ButtonGroup,
-  Pagination,
-} from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Card, Button, ButtonGroup } from "react-bootstrap";
 
 import AllTasks from "./AllTasks";
 
@@ -39,37 +33,34 @@ const TasksByCategory = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <Card className="text-center" id="createCard">
         <Card.Body>
-          <p>
-            <h5> Zgjidh kategori per afishim</h5>
-          </p>
-          <Pagination>
-            <Pagination.Prev />
+          <h5> Zgjidh kategori per afishim</h5>
 
-            {category.map((category) => (
-              <ButtonGroup className="mr-2" aria-label="Grupi par">
-                <Button className="categButton">{category.category}</Button>
-                <Button
-                  className="categButton"
-                  key={category.category_id}
-                  onClick={() => fshiKategori(category.category_id)}
-                >
-                  x
-                </Button>
-              </ButtonGroup>
-            ))}
-
-            <Pagination.Next />
-          </Pagination>
+          {category.map((category) => (
+            <ButtonGroup
+              className="mr-2"
+              aria-label="Grupi par"
+              key={category.category_id}
+            >
+              <Button className="categButton">{category.category}</Button>
+              <Button
+                className="categButton"
+                key={category.category_id}
+                onClick={() => fshiKategori(category.category_id)}
+              >
+                x
+              </Button>
+            </ButtonGroup>
+          ))}
 
           <hr />
 
           <AllTasks />
         </Card.Body>
       </Card>
-    </Fragment>
+    </>
   );
 };
 

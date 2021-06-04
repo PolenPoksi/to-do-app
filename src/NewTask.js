@@ -45,7 +45,6 @@ const NewTask = () => {
               value={newTodo.description}
               onChange={(e) => {
                 setNewTodo({ ...newTodo, description: e.target.value });
-                console.log(e.target.value);
               }}
             />
           </p>
@@ -63,36 +62,32 @@ const NewTask = () => {
               }}
             />
           </p>
-          <div>
-            <p>
-              <h5>Date:</h5>
-            </p>
-            <p>
-              <DatePicker
-                setNewTodo={setNewTodo}
-                newTodo={newTodo}
-                selected={startDate}
-                onChange={(date) => {
-                  setStartDate(date);
-                  setNewTodo({ ...newTodo, date: startDate });
-                }}
-              />
-            </p>
-          </div>
-          <div>
-            <p>
-              <h5>Click to set category:</h5>
-            </p>
-            <p>
-              <ListCategories setNewTodo={setNewTodo} newTodo={newTodo} />
-            </p>
-          </div>
+
+          <h5>Date:</h5>
+
+          <p>
+            <DatePicker
+              setNewTodo={setNewTodo}
+              newTodo={newTodo}
+              selected={startDate}
+              onChange={(date) => {
+                setStartDate(date);
+                setNewTodo({ ...newTodo, date: startDate });
+              }}
+            />
+          </p>
+
+          <h5>Click to set category:</h5>
+
+          <p>
+            <ListCategories setNewTodo={setNewTodo} newTodo={newTodo} />
+          </p>
+
           <hr />
-          <div>
-            <button onClick={addTodo} className="butoniShto">
-              Create Task
-            </button>
-          </div>
+
+          <button onClick={addTodo} className="butoniShto">
+            Create Task
+          </button>
         </Card.Footer>
       </Card>
     </Fragment>

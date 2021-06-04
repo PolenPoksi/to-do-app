@@ -18,12 +18,6 @@ function App() {
       <Container>
         <Router>
           <Row>
-            {/* <Col>
-              <hr id="line" />
-              <hr id="line" />
-              <hr id="line" />
-              <hr id="line" />
-            </Col> */}
             <Col id="addall">
               <Row>
                 <Link to="/">
